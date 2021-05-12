@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = process.env.PORT || 4000
 
-const log = []
+const logs = []
 
 app.use(bodyParser.json())
 //app.use(bodyParser.text({type: '*/*'}));
@@ -38,14 +38,14 @@ app.post('/notification', (req, res) => {
       console.log(participant.user_name)
       console.log(participant.join_time)
       console.log("+++++++++++++++++++++++")
-      log.push(["join", participant.user_name, participant.join_time])
+      logs.push(["join", participant.user_name, participant.join_time])
     } else if(req.body.event == "meeting.participant_left") {
       const participant = req.body.payload.object.participant
       console.log("======== leave ========")
       console.log(participant.user_name)
       console.log(participant.leave_time)
       console.log("+++++++++++++++++++++++")
-      log.push(["left", participant.user_name, participant.leave_time])
+      logs.push(["left", participant.user_name, participant.leave_time])
     } else {
       console.log("unexpected type: " + req.body.event)
     }
