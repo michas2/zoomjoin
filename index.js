@@ -2,14 +2,12 @@ const app = require('express')()
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
-const port = process.env.PORT || 4000
-
 const logs = []
 
 app.get('/', (req, res) => {
-  res.write("current log:\n")
+  res.write("event log:\n")
   res.write('========\n')
-  logs.forEach(([type,name,time])=> res.write(`${type}\t${time}\t${name}\n`))
+  logs.forEach(([type,name,time]) => res.write(`${type}\t${time}\t${name}\n`))
   res.write('========\n')
   res.end()
 })
@@ -26,10 +24,11 @@ app.post('/notification', (req, res) => {
     }
     res.sendStatus(204)
   } else {
-    console.log("wrong request")
+    console.log("invalid request")
     console.log(req.headers)
-    res.send(400)
+    res.sendStatus(400)
   }
 })
 
+const port = process.env.PORT || 4000
 app.listen(port, () => console.log(`Listening on port ${port}!`))
