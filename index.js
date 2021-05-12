@@ -15,13 +15,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/notification', (req, res) => {
-  console.log(req.body)
   if (req.is('application/json') && req.headers['authorization'] == "CNHwZ_Z6RKqj9ymYwmp0Og" ) {
     switch (req.body.event) {
       case "meeting.participant_joined":
-        logs.push(["join", req.body.payload.object.participant.user_name, req.body.payload.object.participant.join_time])
+        logs.push(["join", req.body.payload.object.participant.user_name, req.body.payload.object.participant.join_time]);break
       case "meeting.participant_left":
-        logs.push(["left", req.body.payload.object.participant.user_name, req.body.payload.object.participant.leave_time])
+        logs.push(["left", req.body.payload.object.participant.user_name, req.body.payload.object.participant.leave_time]);break
       default:
         console.log("unexpected type: " + req.body.event)
     }
