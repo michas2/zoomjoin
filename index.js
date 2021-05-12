@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
   res.write('========')
   logs.forEach(([type,name,time])=> res.write(util.format("%6s %s %s\n",type,time,name)))
   res.write('========')
-  res.end
+  res.end()
 })
 
 app.post('/notification', (req, res) => {
