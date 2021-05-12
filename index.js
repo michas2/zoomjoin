@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/notification', (req, res) => {
+  console.log(req.body)
   if (req.is('application/json') && req.headers['authorization'] == "CNHwZ_Z6RKqj9ymYwmp0Og" ) {
     switch (req.body.event) {
       case "meeting.participant_joined":
