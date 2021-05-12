@@ -1,14 +1,7 @@
 {
   "name": "ng",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": { "start": "node index.js" },
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1"
