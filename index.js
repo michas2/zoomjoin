@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const util = require('util');
 
 const app = express()
 const port = process.env.PORT || 4000
@@ -15,7 +14,7 @@ app.get('/', (req, res) => {
   console.log(req.headers)
   res.write("current log:\n")
   res.write('========\n')
-  logs.forEach(([type,name,time])=> res.write(util.format("%6s %s %s\n",type,time,name)))
+  logs.forEach(([type,name,time])=> res.write(`${type}\t${time}\t${name}`))
   res.write('========\n')
   res.end()
 })
