@@ -13,9 +13,9 @@ app.get('/', (req, res) => {
   console.log("get")
   console.log(req.headers)
   res.write("current log:\n")
-  res.write('========')
+  res.write('========\n')
   logs.forEach(([type,name,time])=> res.write(util.format("%6s %s %s\n",type,time,name)))
-  res.write('========')
+  res.write('========\n')
   res.end()
 })
 
