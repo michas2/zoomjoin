@@ -9,6 +9,7 @@ app.get('/', (req, res) => {
   res.write('========\n')
   logs.forEach(([type,name,time]) => res.write(`${type}\t${time}\t${name}\n`))
   res.write('========\n')
+  res.write('(Log is cleared when inactive.)\n')
   res.end()
 })
 
